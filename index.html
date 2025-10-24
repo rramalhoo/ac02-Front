@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Ac 02 - Tri</title>
-  <script src="script.js"></script>
 </head>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-</style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  </style>
 <body>
   <h1>EX - 01</h1>
   <p>Digite o número do candidato:</p>
@@ -19,19 +18,30 @@
     <b>0</b> - Voto em branco<br>
     <b>-1</b> - Encerrar votação
   </p>
-
+  
   <input type="number" id="voto" placeholder="Digite seu voto">
   <button onclick="ex01()">Confirmar</button>
 
   <div id="resultadoEx1"></div>
-
-
+  
+  
   <h1>EX - 02</h1>
   <p>Digite o valor da venda (ou -1 para encerrar):</p>
   <input type="number" id="venda" placeholder="Valor da venda">
   <button onclick="ex02()">Registrar</button>
-
+  
   <div id="resultadoEx2"></div>
-
+  
+  <h1>EX - 03</h1>
+  <input type="text" id="produto" placeholder="Digite o nome do Produto">
+  <input type="number" id="quantidade" placeholder="Digite a Quantidade">
+  <button id="adicionar">Adicionar Produto</button>
+  <p></p>
+  <button id="finalizar">Finalizar</button>
+  
+  <h2>Resultados:</h2>
+  <p id="resultados"></p>
+  
 </body>
+<script src="script.js"></script>
 </html>
