@@ -1,10 +1,10 @@
 //EX01
 
-let votos = [] 
+let votos = []
 
 function ex01() {
   let voto = parseInt(document.getElementById("voto").value)
-  document.getElementById("voto").value = "" 
+  document.getElementById("voto").value = ""
 
   if (voto === -1) {
     mostrarResultado()
@@ -29,22 +29,11 @@ function mostrarResultado() {
 
   let totalVotos = votos.length
 
-  let percC1 = "0.0"
-  if (totalVotos > 0) {
-    percC1 = ((totalC1 / totalVotos) * 100).toFixed(1)
-  }
+  let percC1 = ((totalC1 / divisor) * 100).toFixed(1)
+  let percC2 = ((totalC2 / divisor) * 100).toFixed(1)
+  let percOutros = (((totalBranco + totalNulo) / divisor) * 100).toFixed(1)
 
-  let percC2 = "0.0"
-  if (totalVotos > 0) {
-    percC2 = ((totalC2 / totalVotos) * 100).toFixed(1)
-  }
-
-  let percOutros = "0.0"
-  if (totalVotos > 0) {
-    percOutros = (((totalBranco + totalNulo) / totalVotos) * 100).toFixed(1)
-  }
-
-  let vencedor = ""
+  let vencedor
   if (totalC1 > totalC2) vencedor = "Candidato 1"
   else if (totalC2 > totalC1) vencedor = "Candidato 2"
   else vencedor = "Empate"
@@ -60,6 +49,7 @@ function mostrarResultado() {
     <h3>Vencedor: ${vencedor}</h3>
   `
 }
+
 
 
 
