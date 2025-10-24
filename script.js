@@ -157,7 +157,7 @@ document.getElementById('finalizar').addEventListener('click', () => {
         Quantidade do produto "${quantidadeProdutoEspecifico}": ${quantidadeEspecifica}
     `;
 
-    document.getElementById('resultados').innerHTML = resultados
+    document.getElementById('resultadosEx3').innerHTML = resultados
 });
 
 function encontrarProdutoMaisFrequente() {
