@@ -8,11 +8,10 @@ function ex01() {
 
   if (voto === -1) {
     mostrarResultado()
-    return
+  } else {
+    votos.push(voto)
+    alert("Voto registrado!")
   }
-
-  votos.push(voto)
-  alert("Voto registrado!")
 }
 
 function mostrarResultado() {
@@ -29,9 +28,21 @@ function mostrarResultado() {
   }
 
   let totalVotos = votos.length
-  let percC1 = totalVotos ? ((totalC1 / totalVotos) * 100).toFixed(1) : "0.0"
-  let percC2 = totalVotos ? ((totalC2 / totalVotos) * 100).toFixed(1) : "0.0"
-  let percOutros = totalVotos ? (((totalBranco + totalNulo) / totalVotos) * 100).toFixed(1) : "0.0"
+
+  let percC1 = "0.0"
+  if (totalVotos > 0) {
+    percC1 = ((totalC1 / totalVotos) * 100).toFixed(1)
+  }
+
+  let percC2 = "0.0"
+  if (totalVotos > 0) {
+    percC2 = ((totalC2 / totalVotos) * 100).toFixed(1)
+  }
+
+  let percOutros = "0.0"
+  if (totalVotos > 0) {
+    percOutros = (((totalBranco + totalNulo) / totalVotos) * 100).toFixed(1)
+  }
 
   let vencedor = ""
   if (totalC1 > totalC2) vencedor = "Candidato 1"
@@ -52,6 +63,7 @@ function mostrarResultado() {
 
 
 
+
 //EX02
 
 let vendas = []
@@ -62,36 +74,48 @@ function ex02() {
 
   if (valor === -1) {
     mostrarResumoVendas()
-    return
-  }
-
-  if (valor < 0) {
+  } else if (valor < 0) {
     alert("Digite um valor válido (ou -1 para encerrar)")
-    return
+  } else {
+    vendas.push(valor)
+    alert("Venda registrada!")
   }
-
-  vendas.push(valor)
-  alert("Venda registrada!")
 }
 
 function mostrarResumoVendas() {
+  let resultado = document.getElementById("resultadoEx2")
+
   if (vendas.length === 0) {
-    document.getElementById("resultadoEx2").innerHTML = "<p>Nenhuma venda registrada.</p>"
-    return
+    resultado.innerHTML = "<p>Nenhuma venda registrada.</p>"
+  } else {
+    let maior = vendas[0]
+    let menor = vendas[0]
+    let soma = 0
+
+    for (let i = 0; i < vendas.length; i++) {
+      let valor = vendas[i]
+      soma += valor
+
+      if (valor > maior) {
+        maior = valor
+      }
+      if (valor < menor) {
+        menor = valor
+      }
+    }
+
+    let media = (soma / vendas.length).toFixed(2)
+
+    resultado.innerHTML = `
+      <h2>Resumo das Vendas</h2>
+      <p><b>Maior venda:</b> R$ ${maior.toFixed(2)}</p>
+      <p><b>Menor venda:</b> R$ ${menor.toFixed(2)}</p>
+      <p><b>Média das vendas:</b> R$ ${media}</p>
+    `
   }
-
-  let maior = Math.max(...vendas)
-  let menor = Math.min(...vendas)
-  let soma = vendas.reduce((total, v) => total + v, 0)
-  let media = (soma / vendas.length).toFixed(2)
-
-  document.getElementById("resultadoEx2").innerHTML = `
-    <h2>Resumo das Vendas</h2>
-    <p><b>Maior venda:</b> R$ ${maior.toFixed(2)}</p>
-    <p><b>Menor venda:</b> R$ ${menor.toFixed(2)}</p>
-    <p><b>Média das vendas:</b> R$ ${media}</p>
-  `
 }
+
+
 
 
 
